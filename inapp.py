@@ -28,43 +28,8 @@ def predict_order_confirmation(data, model):
 
 # Function to create visualizations
 def create_visualizations(df):
-    # Distribution of Age
-    st.subheader('Distribution of Age')
-    fig_age = plt.figure(figsize=(8, 6))
-    sns.histplot(df['Age'], bins=20, kde=True)
-    st.pyplot(fig_age)
-
-    # Distribution of Credit Score
-    st.subheader('Distribution of Credit Score')
-    fig_credit = plt.figure(figsize=(8, 6))
-    sns.histplot(df['CreditScore'], bins=20, kde=True)
-    st.pyplot(fig_credit)
-
-    # Monthly Income vs. Order Confirmation
-    st.subheader('Monthly Income vs. Order Confirmation')
-    fig_income = plt.figure(figsize=(8, 6))
-    sns.boxplot(x='OrderConfirmation', y='MonthlyIncome', data=df)
-    st.pyplot(fig_income)
-
-    # Gender Distribution
-    st.subheader('Gender Distribution')
-    gender_counts = df['Gender'].value_counts()
-    fig_gender = plt.figure(figsize=(8, 6))
-    gender_counts.plot(kind='bar', rot=0)
-    plt.title('Gender Distribution')
-    plt.xlabel('Gender')
-    plt.ylabel('Count')
-    st.pyplot(fig_gender)
-
-    # Category-wise Sales
-    st.subheader('Category-wise Sales')
-    category_sales = df.groupby('Category')['OrderConfirmation'].mean().sort_values(ascending=False)
-    fig_category = plt.figure(figsize=(10, 6))
-    category_sales.plot(kind='bar', rot=45)
-    plt.title('Mean Order Confirmation by Category')
-    plt.xlabel('Category')
-    plt.ylabel('Mean Order Confirmation')
-    st.pyplot(fig_category)
+    # Your visualization code here
+    pass
 
 # Title and description for the Streamlit app
 st.title('Order Confirmation Prediction')
@@ -108,8 +73,9 @@ if st.sidebar.button('Predict'):
     st.sidebar.success(f'The predicted order confirmation is: {confirmation}')
 
 # Load your dataset for visualization (assuming df is your loaded DataFrame)
-df = pd.read_csv("C:/Users/Lenovo/insights.csv")  # Adjust path as necessary
+df = pd.read_csv("https://raw.githubusercontent.com/kavyasri2099/insights_app/main/insights.csv")  # Adjust path as necessary
 
 # Optionally, display all required visualizations
 st.header('Data Visualizations')
 create_visualizations(df)
+
